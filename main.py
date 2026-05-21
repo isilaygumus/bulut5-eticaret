@@ -1,4 +1,15 @@
 from flask import Flask, render_template, redirect, session, url_for
+import mysql.connector 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+db_config = {
+    "host": os.getenv('db_host'),
+    "user": os.getenv('db_user'),
+    "password": os.getenv('db_password'),
+    "database": os.getenv('db_db')
+}
 
 app = Flask(__name__)
 
