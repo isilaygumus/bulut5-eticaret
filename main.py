@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, session, url_for
-import mysql.connector 
+import pymysql 
 from dotenv import load_dotenv
 import os
 
@@ -10,6 +10,19 @@ db_config = {
     "password": os.getenv('db_password'),
     "database": os.getenv('db_db')
 }
+
+def connect_to_db(config):
+    try:
+        conn=pymysql.connect(**config)
+        print("success")
+        return conn
+    except pymysql.Error as e:
+        print(f"failledi {e}")
+
+
+conn = connect_to_db(db_config)
+
+
 
 app = Flask(__name__)
 
