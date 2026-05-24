@@ -38,8 +38,8 @@ PRODUCTS = [
 @app.route('/')
 def index():
     cart_items = session.get('cart', [])
-    total_price = sum(item['price'] for item in cart_items)
-    return render_template('index.html', products=PRODUCTS, cart_items=cart_items,total_price=total_price)
+    totalprice = sum(item['price'] for item in cart_items)
+    return render_template('index.html', products=PRODUCTS, cart_items=cart_items,totalprice=totalprice)
 
 
 @app.route('/add_to_cart/<int:product_id>')
@@ -60,6 +60,29 @@ def clear_cart():
     session.pop('cart', None)
     return redirect(url_for('index'))
 
+@app.route('/checkout', methods=['POST'])
+def checkout():
+    cart_items = session.get('cart', [])
+
+    if not cart_items:
+        return redirect(url_for('index'))
+    
+    totalprice = sum(item['price'] for item in cart_items)
+
+    order_names = ", ".join([item['name'] for item in cart_items])
+
+    if len(order_names) > 100:
+        order_names = order_names[:97] + "..."
+
+    cursor = conn.cursor()
+    sql = "INSERT INTO final_order (name, totalprice) VALUES (%s, %s)"
+    cursor.execute(sql, (order_names, totalprice))
+
+    conn.commit()
+
+    session.pop('cart', None)
+
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

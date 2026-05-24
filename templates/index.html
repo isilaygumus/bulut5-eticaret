@@ -48,7 +48,9 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-success" onclick="alert('Sipariş başarıyla alındı!')">Alışverişi Tamamla</button>
+                        <form action="/checkout" method="POST" style="display: contents;">
+                            <button type="submit" class="btn btn-success" onclick="alert('Sipariş veritabanına kaydediliyor!')">Alışverişi Tamamla</button>
+                        </form>
                         <a href="/clear_cart" class="btn btn-outline-danger btn-sm">Sepeti Temizle</a>
                     </div>
                 {% else %}
