@@ -1,4 +1,5 @@
 Proje Kapsamı ve Amacı
+
 Bu proje, Python framework'ü olan Flask kullanılarak geliştirilen hafif, hızlı ve tek sayfadan oluşan dinamik bir e-ticaret platformu simülasyonudur. Projenin temel amacı, uygulamanın Google Cloud Platform (GCP) üzerinde tam modüler, yüksek erişilebilirliğe sahip ve gelen trafiğe göre otomatik ölçeklenebilir (Auto Scaling) bir mimaride ayağa kaldırılmasıdır.
 
 Başlangıçta yerel (local) ortamda ve geçici hafıza (in-memory) ile simüle edilen proje , nihai aşamada yönetilen bir bulut veritabanına bağlanmış ve trafik yönetimini otonom hale getiren bir bulut mimarisine taşınmıştır.
