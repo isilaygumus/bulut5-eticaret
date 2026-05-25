@@ -1,0 +1,16 @@
+nohup: ignoring input
+success
+ * Serving Flask app 'main'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.156.0.3:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 113-441-714
+35.191.71.253 - - [25/May/2026 16:39:59] "GET / HTTP/1.1" 200 -
+35.191.71.254 - - [25/May/2026 16:40:19] "GET / HTTP/1.1" 200 -
+35.191.56.237 - - [25/May/2026 16:54:12] "GET / HTTP/1.1" 200 -
+35.191.23.2 - - [25/May/2026 16:59:05] "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1" 200 -
